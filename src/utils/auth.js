@@ -41,7 +41,7 @@ export const getUserDetails = async () => {
         token: `${token}`, // Send token in Authorization header
       },
     });
-    console.log("response from auth", response.data);
+
     return response.data;
   } catch (error) {
     console.error("Error fetching user details:", error);

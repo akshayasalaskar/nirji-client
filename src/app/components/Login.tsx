@@ -19,7 +19,7 @@ const Login = () => {
   useEffect(() => {
     const authenticate = async () => {
       if (await isLogin()) {
-        router.push("/user");
+        router.push("/");
       } else {
         setPageReady(true);
       }
@@ -38,8 +38,6 @@ const Login = () => {
     axios
       .post(`${baseURL}/login`, payload)
       .then((res) => {
-        console.log(res.data);
-
         setAuthentication(res.data.token);
         toast.success("Login Successful");
         router.push("/");
@@ -55,24 +53,9 @@ const Login = () => {
     >
       <div className="h-screen grid place-items-center">
         <div className="text-center">
-          <h1 className="text-accent font-bold text-4xl">
+          <h1 className="text-accent mb-4 font-bold text-4xl">
             Login to Your Account
           </h1>
-          <div className="flex items-center gap-4 pt-8 w-fit mx-auto">
-            <div className="icon__wrapper">
-              <FaFacebookF />
-            </div>
-            <div className="icon__wrapper">
-              <FaGoogle />
-            </div>
-            <div className="icon__wrapper">
-              <FaInstagram />
-            </div>
-          </div>
-
-          <p className="pt-8 text-[13px] text-gray-400">
-            Or use your email account for registration.
-          </p>
 
           <form
             className="flex w-[300px] mx-auto flex-col pt-2 gap-2"
@@ -94,8 +77,6 @@ const Login = () => {
               placeholder="Password"
               required
             />
-
-            <p>Forgot your password?</p>
 
             <button className="uppercase bg-accent px-4 py-2 text-white mt-4">
               Login
