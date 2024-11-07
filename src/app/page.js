@@ -1,12 +1,9 @@
 "use client";
-
-import { profile } from "console";
 import { isLogin, logOut, getUserDetails } from "../../src/utils/auth";
 import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import { baseURL, imageUrl } from "../utils/constant";
 import { toast } from "react-toastify";
-import xyz from "../../public/img/beautifulme.jpg";
 import Image from "next/image";
 
 export default function Home() {
@@ -57,8 +54,7 @@ export default function Home() {
 
     fetchUserData();
   }, []);
-  console.log("userDetails", userDetails);
-  console.log("image", userDetails.image);
+
   return (
     <main
       className={`${
@@ -78,6 +74,7 @@ export default function Home() {
             className="rounded-full" // Add any styling you want
           />
         </div>
+
         <button
           className="bg-accent px-4 py-2 text-white"
           onClick={handleLogOut}
